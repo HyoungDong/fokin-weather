@@ -62,13 +62,14 @@ const weatherOptions = {
     }
 }
 
-export default function Weather({temp,condition}){
+export default function Weather({temp,condition,name}){
     return (
     <LinearGradient
           colors={weatherOptions[condition].gradient}
           style={styles.container}>
         <StatusBar barStyle ="light-content"/>
         <View style = {styles.Uphalf}>
+        <Text style ={styles.country}>{name}</Text>
         <MaterialCommunityIcons size = {96} name = {weatherOptions[condition].iconName} color = "white"/>
         <Text style = {styles.temp}>{temp}•</Text>
         </View>
@@ -109,15 +110,22 @@ const styles = StyleSheet.create({
         color:"white",
         fontSize:44,
         fontWeight:"300",
-        marginBottom:15
+        marginBottom:15,
+        textAlign:"left"
     },
     subtitle:{
         fontWeight:"600",
         color:"white",
-        fontSize:24
+        fontSize:24,
+        textAlign:"left"
     },
     textcontainer:{
         paddingHorizontal:20,
         alignItems:"flex-start"
+    },
+    country:{
+        fontSize:50,
+        color:"white",
+        marginBottom:15
     }
 });
